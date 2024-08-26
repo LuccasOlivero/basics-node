@@ -15,5 +15,9 @@ const id = 1;
 
 getUserById(id, (err, user) => {
   if (err) throw new Error("user not found", id);
-  console.log(user);
+  // console.log(user);
 });
+
+const { buildLogger } = require("./foundation/logger-plugin");
+
+buildLogger();
