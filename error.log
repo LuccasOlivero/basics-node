@@ -1,0 +1,12 @@
+{"level":"error","message":"info, { message, service }","service":"user-service"}
+{"level":"error","message":"info, {  }","service":"user-service"}
+{"level":"error","message":"info, { message, service }","service":"user-service"}
+{"level":"error","message":"info","service":"user-service"}
+{"level":"error","message":"info chau","service":"app.js"}
+{"level":"error","message":"error chau","service":"app.js"}
+{"level":"error","message":"error chau","service":"app.js"}
+{"level":"error","message":"error chau","service":"app.js"}
+{"level":"error","message":"error chau","service":"app.js"}
+{"level":"error","message":"error chau","service":"app.js"}
+{"level":"error","message":"error chau","service":"app.js","timestamp":"2024-08-28T19:01:53.453Z"}
+{"level":"error","message":"error chau","service":"app.js","timestamp":"2024-08-28T19:41:01.290Z"}

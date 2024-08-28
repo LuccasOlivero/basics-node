@@ -1,8 +1,9 @@
 const winston = require("winston");
+const { combine, json, timestamp } = winston.format;
 
 const logger = winston.createLogger({
   level: "info",
-  format: winston.format.json(),
+  format: combine(timestamp(), json()),
   defaultMeta: { service: "user-service" },
   transports: [
     //
@@ -14,22 +15,26 @@ const logger = winston.createLogger({
   ],
 });
 
-//
-// If we're not in production then log to the `console` with the format:
-// `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
-//
-if (process.env.NODE_ENV !== "production") {
-  logger.add(
-    new winston.transports.Console({
-      format: winston.format.simple(),
-    })
-  );
-}
+logger.add(
+  new winston.transports.Console({
+    format: winston.format.simple(),
+  })
+);
 
-exports.module = function buildLogger(service) {
+// usando el patron adaptador ->
+module.exports = function buildLogger(service) {
   return {
     log: (message) => {
-      logger.log("info", message, service);
+      logger.log("info", {
+        message,
+        service,
+      });
+    },
+    error: (message) => {
+      logger.error("error", {
+        message,
+        service,
+      });
     },
   };
 };
